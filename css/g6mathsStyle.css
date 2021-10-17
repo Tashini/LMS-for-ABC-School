@@ -1,0 +1,28 @@
+.content_3{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 400px;
+}
+
+.content_3 .lesson{
+    border-radius: 25px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 30px;
+	background-color:	#BC8F8F;
+	opacity: 0.7;
+	width: 600px;
+	height: 600px;
+    color: black;
+}
+
+.content_3 input{
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.content_3 .upload{
+    background-color: #4c5a7d; 
+    color: white;
+}

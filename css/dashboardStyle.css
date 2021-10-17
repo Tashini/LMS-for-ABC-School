@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i');
+
+.section_2{
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.section_2 .form{
+	padding-left: 120px;
+    padding-top: 20px;
+    opacity: 0.9;
+}
+
+.section_2 .accordion {
+  background-color:	#BC8F8F;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 90%;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  border: 2px;
+  font-size: 30px;
+  border-style: solid;
+}
+
+.section_2 .accordion:hover {
+  background-color: #4c5a7d; 
+  color: black;
+}
+
+.section_2 .panel {
+  padding: 0 18px;
+  display: none;
+  background-color: #FFC0CB;
+  color: black;
+  overflow: hidden;
+  width: 90%;
+  font-size: 15px;
+  text-align: center;
+}
+
+.section_2 a{
+    text-decoration: none;
+    text-align: center;
+    font-size: large;
+}
