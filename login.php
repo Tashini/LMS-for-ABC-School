@@ -3,7 +3,7 @@
 //database connection
 	$host = "localhost";
 	$dbUsername = "root";
-	$dbPassword = "";
+	$dbPassword = "Anulavidyalaya@96";
 	$dbName = "abc_school";
 
 	//Create connection
@@ -11,17 +11,17 @@
 
     if (isset($_GET['submit'])) {
 	
-		$Username = $_GET['username'];
+		$UserID = $_GET['userID'];
 		$Password = $_GET['password'];
 			
-		$std_checked = "SELECT * FROM student WHERE ID_no = '$Username' AND password = '$Password';";
+		$std_checked = "SELECT * FROM students WHERE ID_no = '$UserID' AND password = '$Password';";
 		$std_checked_result = mysqli_query($conn,$std_checked);
 
-		$tea_checked = "SELECT * FROM teacher WHERE ID_no = '$Username' AND password = '$Password';";
+		$tea_checked = "SELECT * FROM teachers WHERE ID_no = '$UserID' AND password = '$Password';";
 		$tea_checked_result = mysqli_query($conn,$tea_checked);
 
-        $sql_std = "SELECT  ID_no FROM student where '$Username' like 'std%'";
-		$sql_tea = "SELECT  ID_no FROM teacher where '$Username' like 'tea%'";
+        $sql_std = "SELECT  ID_no FROM students where '$UserID' like 'std%'";
+		$sql_tea = "SELECT  ID_no FROM teachers where '$UserID' like 'tea%'";
 		$result_std = mysqli_query($conn,$sql_std);
 		$result_tea = mysqli_query($conn,$sql_tea);
 
