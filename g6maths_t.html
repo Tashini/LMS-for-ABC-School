@@ -69,12 +69,12 @@
 
     <div class="content_3">
         <div class="lesson"> 
-            <form action="uploadFiles.php" method="POST" >
+            <form action="uploadFiles.php" method="POST" enctype="multipart/form-data">
                 <input type="text" id="lnumber" placeholder="Lesson Number" name="lno"><br><br>
                 <input type="text" id="lname" placeholder="Lesson Name" name="lname"><br><br>
                 <textarea id="description" cols="60" rows="5" placeholder="Lesson Description" name="ldescription"></textarea><br><br>
                 <input type="date" id="date" placeholder="Date" name="ldate"><br><br>
-                Upload Notes:<input type="file" id="lpdf" name="lfile"><br><br>
+                Upload Notes:<input type="file" id="lfile" name="lfile"><br><br>
                 <input type="submit" class="upload" id="upload" value="Upload" name="upload">
             </form>
 

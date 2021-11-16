@@ -8,41 +8,47 @@
 	//Create connection
 	$conn = mysqli_connect($host, $dbUsername, $dbPassword, $dbName);
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Uploads files
-        if (isset($_POST['upload'])) { // if save button on the form is clicked
-            // name of the uploaded file
-            $LessonNo = $_FILES['lno']['lesson_no'];
-            $filename = $_FILES['lname']['name'];
-            $Description = $_FILES['ldescription']['description'];
-            $Date = $_FILES['ldate']['date'];
+    // Uploads files
+    $targetDir = "uploads/";
+    
+    $lessonNo = $_POST['lno'];
+    $lessonName = $_POST['lname'];
+    $description = $_POST['ldescription'];
+    $date = $_POST['ldate'];
+    $fileName = basename($_FILES['lfile']['name']);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
-            // destination of the file on the server
-            $destination = 'uploads/' . $filename;
-
-            // get the file extension
-            $extension = pathinfo($filename, PATHINFO_EXTENSION);
-
-            // the physical file on a temporary uploads directory on the server
-            $file = $_FILES["lfile"]['tmp_name'];
-
-            if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
-                echo "You file extension must be .zip, .pdf or .docx";
-            // // } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
-            // //     echo "File too large!";
-            } 
-            else {
-                // move the uploaded (temporary) file to the specified destination
-                if (move_uploaded_file($file, $destination)) {
-                    $sql = "INSERT INTO lessons (lesson_no,name, description, date, downloads) VALUES ($LessonNo,'$filename', '$Description', $Date, 0)";
-                    if (mysqli_query($conn, $sql)) {
-                        echo "File uploaded successfully";
-                    }
-                } else {
-                    echo "Failed to upload file.";
+    if(isset($_POST["upload"]) && !empty($_FILES['lfile']['name'])){
+        // Allow certain file formats
+        $allowTypes = array('jpg','png','jpeg','gif','pdf');
+        if(in_array($fileType, $allowTypes)){
+            // Upload file to server
+            if(move_uploaded_file($_FILES['lfile']['tmp_name'], $targetFilePath)){
+                // Insert image file name into database
+                $insert = "INSERT INTO lessons (lesson_no, name, description, date, file) VALUES ($lessonNo, '$lessonName', 
+                    '$description', '$date', '$fileName');";
+                $result_insert = mysqli_query($conn,$insert);
+                
+                if($insert){
+                    $statusMsg = "The file ".basename($_FILES['lfile']['name']). " has been uploaded successfully.";
                 }
-            }    
+                else{
+                    $statusMsg = "File upload failed, please try again.";
+                } 
+            }
+            else{
+                $statusMsg = "Sorry, there was an error uploading your file.";
+            }
+        }
+        else{
+            $statusMsg = "Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.";
+        }
     }
-}
+    else{
+        $statusMsg = "Please select a file to upload.";
+    }
 
+    // Display status message
+    echo $statusMsg;
 ?>
