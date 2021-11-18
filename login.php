@@ -34,9 +34,7 @@
 			}
 		} 
 		else{
-			echo "<script>
-					alert('You are not a registed user.Please contact the administrator');
-				</script>";
+			echo "<script>alert('You are not a registed user.Please contact the administrator'); window.location='index.html'</script>";
 		}
 			
         exit();

@@ -7,13 +7,15 @@
 .content_3 .lesson{
     border-radius: 25px;
 	padding-left: 50px;
-	padding-right: 50px;
+	padding-right: 50px; 
 	padding-top: 30px;
 	background-color:	#BC8F8F;
 	opacity: 0.7;
-	width: 600px;
-	height: 600px;
     color: black;
+}
+
+.content_3 .lesson p{
+    text-align: center;
 }
 
 .content_3 input{

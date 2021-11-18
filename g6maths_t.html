@@ -67,88 +67,16 @@
 		</div>
 	</div>
 
-    <div class="content_3">
-        <div class="lesson"> 
+    <div class="content_3" style="padding-left: 500px;">
+        <div class="lesson" > 
             <form action="uploadFiles.php" method="POST" enctype="multipart/form-data">
                 <input type="text" id="lnumber" placeholder="Lesson Number" name="lno"><br><br>
                 <input type="text" id="lname" placeholder="Lesson Name" name="lname"><br><br>
-                <textarea id="ldescription" cols="60" rows="5" placeholder="Lesson Description" name="ldescription"></textarea><br><br>
+                <textarea id="ldescription" cols="63" rows="5" placeholder="Lesson Description" name="ldescription" style="border-radius: 5px;"></textarea><br><br>
                 <input type="date" id="ldate" placeholder="Date" name="ldate"><br><br>
                 Upload Notes:<input type="file" id="lfile" name="lfile"><br><br>
                 <input type="submit" class="upload" id="upload" value="Upload" name="upload">
             </form>
-
-            <script>
-                var inputTest1 = document.getElementById('lnumber');
-                document.getElementById('upload').addEventListener('click',store_data1); 
-
-                var inputTest2 = document.getElementById('lname');
-                document.getElementById('upload').addEventListener('click',store_data2); 
-
-                var inputTest3 = document.getElementById('ldescription');
-                document.getElementById('upload').addEventListener('click',store_data3); 
-
-                var inputTest4 = document.getElementById('ldate');
-                document.getElementById('upload').addEventListener('click',store_data4);
-
-                var inputTest5 = document.getElementById('lpdf');
-                document.getElementById('upload').addEventListener('click',store_data5);
-            
-                inputTest1.addEventListener('keypress',function(key){  // Enter key Press Listener
-                    key.which = key.which || key.keyCode;
-                    if(key.which == 13) {
-                        store_data1();
-                    }
-                });
-
-                inputTest2.addEventListener('keypress',function(key){  // Enter key Press Listener
-                    key.which = key.which || key.keyCode;
-                    if(key.which == 13) {
-                        store_data2();
-                    }
-                });
-
-                inputTest3.addEventListener('keypress',function(key){  // Enter key Press Listener
-                    key.which = key.which || key.keyCode;
-                    if(key.which == 13) {
-                        store_data3();
-                    }
-                });
-
-                inputTest4.addEventListener('keypress',function(key){  // Enter key Press Listener
-                    key.which = key.which || key.keyCode;
-                    if(key.which == 13) {
-                        store_data4();
-                    }
-                });
-
-                inputTest5.addEventListener('keypress',function(key){  // Enter key Press Listener
-                    key.which = key.which || key.keyCode;
-                    if(key.which == 13) {
-                        store_data5();
-                    }
-                });
-            
-                function store_data1(){ // Store value from input field to local store
-                    localStorage.setItem( 'objectToPass1', inputTest1.value);
-                }
-
-                function store_data2(){ // Store value from input field to local store
-                    localStorage.setItem( 'objectToPass2', inputTest2.value);
-                }
-
-                function store_data3(){ // Store value from input field to local store
-                    localStorage.setItem( 'objectToPass3', inputTest3.value);
-                }
-
-                function store_data4(){ // Store value from input field to local store
-                    localStorage.setItem( 'objectToPass4', inputTest4.value);
-                }
-
-                function store_data5(){ // Store value from input field to local store
-                    localStorage.setItem( 'objectToPass5', inputTest5.value);
-                }
-             </script>
         </div>
     </div>
     
@@ -158,44 +86,20 @@
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <h3>About US</h3>
-                        </div>
-                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-
-				<div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="widget clearfix">
-                        <div class="widget-title">
-                            <h3>Information Link</h3>
-                        </div>
-                        <ul class="footer-links">
-                            <li><a href="#">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Contact</a></li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="widget clearfix">
-                        <div class="widget-title">
                             <h3>Contact Details</h3>
                         </div>
-
                         <ul class="footer-links">
-                            <li><a href="mailto:#">info@yoursite.com</a></li>
-                            <li><a href="#">www.yoursite.com</a></li>
-                            <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
-                            <li>+61 3 8376 6284</li>
+                            <li><a href="mailto:#">abcschool@gmail.com</a></li>
+                            <li><a href="#">www.abcschool.com</a></li>
+                            <li>No.64, ABC Lane, ABC Town</li>
+                            <li>+94 1 2345 6789</li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
-				
             </div><!-- end row -->
         </div><!-- end container -->
     </footer><!-- end footer -->
-
+				
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
     <!-- ALL JS FILES -->

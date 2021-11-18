@@ -7,51 +7,48 @@
 
 	//Create connection
 	$conn = mysqli_connect($host, $dbUsername, $dbPassword, $dbName);
-
+    
     // Uploads files
     $targetDir = "uploads/";
     
-    $lessonNo = $_POST['lno'];
-    $lessonName = $_POST['lname'];
-    $description = $_POST['ldescription'];
-    $date = $_POST['ldate'];
+    // $lessonNo = $_POST['lno'];
+    // $lessonName = $_POST['lname'];
+    // $description = $_POST['ldescription'];
+    // $date = $_POST['ldate'];
     $fileName = $_FILES['lfile']['name'];
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
-    if(isset($_POST["upload"]) && !empty($_FILES['lfile']['name'])){
+    if(isset($_POST["upload"])){
         // Allow certain file formats
         $allowTypes = array('jpg','png','jpeg','gif','pdf');
         if(in_array($fileType, $allowTypes)){
             // Upload file to server
             if(move_uploaded_file($_FILES['lfile']['tmp_name'], $targetFilePath)){
                 // Insert image file name into database
-                $sql  = "INSERT INTO `teaching_materials` (lesson_no,name,description,date,file) VALUES (01,'test_lesson','test','11/17/2021','test.pdf');";
-                $result_insert = mysqli_query($conn,$sql);
-                echo("Error description: " . mysqli_error($conn));
-                echo("Errorcode: " . mysqli_errno($conn));
+                $insert  = "INSERT INTO lessons (lesson_no, file) VALUES (01,'$fileName');";
+                $result_insert = mysqli_query($conn,$insert);
+                //echo("Error description: " . mysqli_error($conn));
+                //echo("Error description: " . mysqli_errno($result_insert));
                 
-                if($sql){
-                    $statusMsg = "The file ".basename($_FILES['lfile']['name']). " has been uploaded successfully.";
+                if($result_insert){
+                    echo "<script>alert('The file ".$fileName. " has been uploaded successfully.'); window.location='g6maths_t.html'</script>";
                 }
                 else{
-                    $statusMsg = "File upload failed, please try again.";
+                    echo "<script>alert('File upload failed, please try again.'); window.location='g6maths_t.html'</script>"; 
                 } 
             }
             else{
-                $statusMsg = "Sorry, there was an error uploading your file.";
+                echo "<script>alert('Sorry, there was an error uploading your file.'); window.location='g6maths_t.html'</script>";
             }
         }
         else{
-            $statusMsg = "Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.";
+            echo "<script>alert('Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.'); window.location='g6maths_t.html'</script>";
         }
     }
     else{
-        $statusMsg = "Please select a file to upload.";
+        echo "<script>alert('Please select a file to upload.'); window.location='g6maths_t.html'</script>";
     }
-
-    // Display status message
-    echo $statusMsg;
 
     exit();
 ?>
