@@ -3,7 +3,7 @@
 //database connection
 	$host = "localhost";
 	$dbUsername = "root";
-	$dbPassword = "";
+	$dbPassword = "Anulavidyalaya@96";
 	$dbName = "abc_school";
 
 	//Create connection

@@ -1,3 +1,20 @@
+<?php
+
+//database connection
+	$host = "localhost";
+	$dbUsername = "root";
+	$dbPassword = "Anulavidyalaya@96";
+	$dbName = "abc_school";
+
+	//Create connection
+	$conn = mysqli_connect($host, $dbUsername, $dbPassword, $dbName);
+
+    $today = date('Y-m-d');
+    $sql = "SELECT * FROM lessons WHERE date = CURDATE()";
+    $result = mysqli_query($conn, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,16 +85,32 @@
 		</div>
 	</div>
 
-    <div class="content_3" style="padding-left: 450px; align-content: center;">
-        <div class="lesson" style="width: 600px; height:auto; padding-bottom: 50px;">
+    <div class="content_3" style="padding-left: 250px;">
+        <div class="lesson" style="width: 1000px; height:auto; padding-bottom: 50px;">
             <div id="write" style="font-size: 20px;">
                 <h3><b>Addition</b></h3>
+                <p>Addition is one of the four basic operations of arithmetic, the other three being subtraction, multiplication and division. The addition of two whole numbers results in the total amount or sum of those values combined. </p>
                 <a href="uploads/01.place-value-and-names-for-whole-numbers_255cah.pdf" download="Addition Lesson 01" style="color: #00008B;">Lesson 01</a><br>
                 <a href="uploads/04.spell-word-names-for-numbers-up-to-one-million_54op9m (1).pdf" download="Addition Lesson 02" style="color: #00008B;">Lesson 02</a><br><br>
 
                 <h3><b>Subtraction</b></h3>
+                <p>Subtraction is an arithmetic operation that represents the operation of removing objects from a collection. Subtraction is 
+                    signified by the minus sign, −. For example, in the adjacent picture, there are 5 − 2 peaches—meaning 5 peaches with 2 taken
+                     away, resulting in a total of 3 peaches.</p>
                 <a href="uploads/04.spell-word-names-for-numbers-up-to-one-million_54op9m.pdf" download="Substraction Lesson 01" style="color: #00008B;">Lesson 01</a><br>
-                <a href="uploads/05.roman-numerals_ft620.pdf" download="Substraction Lesson 01" style="color: #00008B;">Lesson 02</a>
+                <a href="uploads/05.roman-numerals_ft620.pdf" download="Substraction Lesson 01" style="color: #00008B;">Lesson 02</a><br><br>
+
+                <?php   // LOOP TILL END OF DATA 
+                while($rows=$result->fetch_assoc())
+                {
+             ?>
+            <h3><b><?php echo $rows['name'];?></b></h3>
+            <p><?php echo $rows['description'];?></p>
+            <a href="#" download="Substraction Lesson 01" style="color: #00008B;"><?php echo $rows['file'];?></a><br>
+
+            <?php
+                }
+             ?>
             </div>
         </div>
     </div>

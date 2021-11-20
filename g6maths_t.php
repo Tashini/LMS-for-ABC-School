@@ -3,13 +3,14 @@
 //database connection
 	$host = "localhost";
 	$dbUsername = "root";
-	$dbPassword = "";
+	$dbPassword = "Anulavidyalaya@96";
 	$dbName = "abc_school";
 
 	//Create connection
 	$conn = mysqli_connect($host, $dbUsername, $dbPassword, $dbName);
 
-    $sql = "SELECT * FROM lessons WHERE date = date('Y-m-d')";
+    $today = date('Y-m-d');
+    $sql = "SELECT * FROM lessons WHERE date = CURDATE()";
     $result = mysqli_query($conn, $sql);
 
 ?>
@@ -83,13 +84,13 @@
 		</div>
 	</div>
 
-    <div class="content_3" style="padding-left: 250px; align-content: center;">
+    <div class="content_3" style="padding-left: 250px;">
         <div class="lesson" style="width: 1000px; height:auto; padding-bottom: 50px;">
             <div id="write" style="font-size: 20px;">
                 <p style="font-size: 40px;"><center><b>Previously Uploaded Lessons</b></center></p>
                 <h3><b>Addition</b></h3>
                 <p>Addition is one of the four basic operations of arithmetic, the other three being subtraction, multiplication and division. 
-                    The addition of two whole numbers results in the total amount or sum of those values combined. </p>
+                    The addition of two whole numbers results in the total amount or sum of those values combined.</p>
                 <a href="uploads/01.place-value-and-names-for-whole-numbers_255cah.pdf" download="Addition Lesson 01" style="color: #00008B;">Lesson 01</a><br>
                 <a href="uploads/04.spell-word-names-for-numbers-up-to-one-million_54op9m (1).pdf" download="Addition Lesson 02" style="color: #00008B;">Lesson 02</a><br><br>
 
