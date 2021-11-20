@@ -12,9 +12,9 @@
     $targetDir = "uploads/";
     
     // $lessonNo = $_POST['lno'];
-    // $lessonName = $_POST['lname'];
-    // $description = $_POST['ldescription'];
-    // $date = $_POST['ldate'];
+    $lessonName = $_POST['lname'];
+    $description = $_POST['ldescription'];
+    $date = $_POST['ldate'];
     $fileName = $_FILES['lfile']['name'];
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
@@ -26,28 +26,28 @@
             // Upload file to server
             if(move_uploaded_file($_FILES['lfile']['tmp_name'], $targetFilePath)){
                 // Insert image file name into database
-                $insert  = "INSERT INTO lessons (lesson_no, file) VALUES (01,'$fileName');";
+                $insert  = "INSERT INTO lessons (name, description,file,date) VALUES ('$lessonName','$description','$fileName','$date');";
                 $result_insert = mysqli_query($conn,$insert);
                 //echo("Error description: " . mysqli_error($conn));
                 //echo("Error description: " . mysqli_errno($result_insert));
                 
                 if($result_insert){
-                    echo "<script>alert('The file ".$fileName. " has been uploaded successfully.'); window.location='g6maths_t.html'</script>";
+                    echo "<script>alert('The file ".$fileName. " has been uploaded successfully.'); window.location='g6maths_t.php'</script>";
                 }
                 else{
-                    echo "<script>alert('File upload failed, please try again.'); window.location='g6maths_t.html'</script>"; 
+                    echo "<script>alert('File upload failed, please try again.'); window.location='g6maths_t.php'</script>"; 
                 } 
             }
             else{
-                echo "<script>alert('Sorry, there was an error uploading your file.'); window.location='g6maths_t.html'</script>";
+                echo "<script>alert('Sorry, there was an error uploading your file.'); window.location='g6maths_t.php'</script>";
             }
         }
         else{
-            echo "<script>alert('Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.'); window.location='g6maths_t.html'</script>";
+            echo "<script>alert('Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.'); window.location='g6maths_t.php'</script>";
         }
     }
     else{
-        echo "<script>alert('Please select a file to upload.'); window.location='g6maths_t.html'</script>";
+        echo "<script>alert('Please select a file to upload.'); window.location='g6maths_t.php'</script>";
     }
 
     exit();

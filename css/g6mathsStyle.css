@@ -1,7 +1,6 @@
 .content_3{
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 400px;
 }
 
 .content_3 .lesson{
@@ -25,6 +24,6 @@
 }
 
 .content_3 .upload{
-    background-color: #4c5a7d; 
+    
     color: white;
 }
