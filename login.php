@@ -34,7 +34,7 @@
 			}
 		} 
 		else{
-			echo "<script>alert('You are not a registed user.Please contact the administrator'); window.location='index.html'</script>";
+			echo "<script>alert('Incorrect user ID, password or you are not a registed user.'); window.location='index.html'</script>";
 		}
 			
         exit();

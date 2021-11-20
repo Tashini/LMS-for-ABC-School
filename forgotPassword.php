@@ -28,13 +28,13 @@
                     $std_update = "UPDATE students SET password = '$newPassword' WHERE ID_no = '$Username';";
                     $result_std_update = mysqli_query($conn,$std_update);
 
-                    echo "<script>alert('Update Sucessfully'); window.location='index.html'</script>";
+                    echo "<script>alert('Password updated Sucessfully. Please login to your account.'); window.location='index.html'</script>";
                 }
                 elseif(mysqli_num_rows($result_tea_check) > 0){
                     $tea_update = "UPDATE teachers SET password = '$newPassword' WHERE ID_no = '$Username';";
                     $result_tea_update = mysqli_query($conn,$tea_update);
 
-                    echo "<script>alert('Update Sucessfully'); window.location='index.html'</script>"; 
+                    echo "<script>alert('Password updated Sucessfully. Please login to your account.'); window.location='index.html'</script>"; 
                 }
 			}
             else {
@@ -46,7 +46,7 @@
         
         else{
             echo "<script>
-                    alert('You are not a registed user.Please contact the administrator');
+                    alert('Incorrect user ID or you are not a registed user.');
                 </script>";
         }
 	}
