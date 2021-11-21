@@ -4,7 +4,7 @@
 	$dbPassword = "";
 	$dbName = "abc_school";
 
-	//Create connection
+	//Create connectionAnulavidyalaya@96
 	$conn = mysqli_connect($host, $dbUsername, $dbPassword, $dbName);
 
     if (isset($_POST['save'])) {
